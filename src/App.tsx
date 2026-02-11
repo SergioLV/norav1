@@ -1,7 +1,9 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Problem from './components/Problem'
+import NoShows from './components/NoShows'
 import Solution from './components/Solution'
+import WhyItWorks from './components/WhyItWorks'
 import HowItWorks from './components/HowItWorks'
 import Features from './components/Features'
 import Pricing from './components/Pricing'
@@ -16,7 +18,9 @@ export default function App() {
       <Navbar />
       <Hero />
       <Problem />
+      <NoShows />
       <Solution />
+      <WhyItWorks />
       <HowItWorks />
       <Features />
       <Pricing />

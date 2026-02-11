@@ -73,3 +73,11 @@
   color: var(--accent);
   font-weight: 700;
 }
+
+.zeroline {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-align: center;
+}

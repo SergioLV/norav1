@@ -188,6 +188,12 @@ export default function Calculator() {
             </p>
           )}
 
+          {valid && (
+            <p className={styles.emotionalClose}>
+              Ese dinero ya está confirmado antes de la sesión.
+            </p>
+          )}
+
           <div className={styles.microcopy}>
             <p>El costo del medio de pago lo paga el paciente.</p>
             <p>La transferencia bancaria al profesional tiene un costo de 1,99% + IVA.</p>

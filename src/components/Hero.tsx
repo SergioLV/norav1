@@ -5,12 +5,12 @@ export default function Hero() {
     <section className={`${styles.hero}`}>
       <div className="container">
         <h1 className={styles.title}>
-          Convierte mensajes de WhatsApp en{' '}
-          <span className={styles.highlight}>horas confirmadas y pagadas</span>
+          Deja de perseguir pacientes{' '}
+          <span className={styles.highlight}>para confirmar la hora</span>
         </h1>
         <p className={styles.subtitle}>
-          Configura tus servicios y horarios, comparte tu link de agendamiento
-          y deja que tus pacientes reserven y paguen el total al agendar. Sin suscripción.
+          NORA confirma la sesión con pago previo y recordatorios automáticos por WhatsApp.
+          Tú atiendes. NORA coordina.
         </p>
         <div className={styles.actions}>
           <a href="#cta" className="btn-primary">Crear mi link de agendamiento →</a>
@@ -23,7 +23,7 @@ export default function Hero() {
         </div>
 
         <div className={styles.badge}>
-          💰 <span>$1.000 CLP por reserva pagada</span> — solo pagas cuando ganas
+          💰 <span>$1.000 CLP por reserva pagada</span> — si no atiendes, no pagas nada
         </div>
       </div>
     </section>

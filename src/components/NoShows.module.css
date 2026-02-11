@@ -1,0 +1,81 @@
+.section {
+  background: var(--bg);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--neutral);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.cardHighlight {
+  border-color: var(--primary);
+  border-width: 2px;
+  background: #fdf6f3;
+}
+
+.cardIcon {
+  font-size: 1.75rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.cardLabel {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 0.25rem;
+}
+
+.cardValue {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+.cardBig {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  color: var(--primary);
+  line-height: 1.1;
+}
+
+.cardSub {
+  font-size: 0.85rem;
+  color: #999;
+  margin-top: 0.25rem;
+}
+
+.bottom {
+  text-align: center;
+}
+
+.bottomText {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.bottomText strong {
+  color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -8,11 +8,11 @@ const patientSteps = [
 ]
 
 const proBenefits = [
-  'Sin coordinación por chat',
+  'Tú no cobras — el sistema cobra por ti',
   'Sin verificación manual de pagos',
   'Recordatorios automáticos por WhatsApp',
-  'Menos cancelaciones',
-  'Pagos predecibles',
+  'Menos cancelaciones, más ingresos',
+  'Pagos en tu cuenta al día siguiente',
 ]
 
 export default function Solution() {
@@ -20,9 +20,10 @@ export default function Solution() {
     <section id="solucion" className="section">
       <div className="container">
         <span className="section-label">La solución</span>
-        <h2 className="section-title">Tu link. Reserva confirmada. Pago recibido.</h2>
+        <h2 className="section-title">NORA no es un calendario.<br />Es tu escudo contra plantones y cobros incómodos.</h2>
         <p className="section-subtitle">
           Configura tus horas, comparte tu link y deja que NORA se encargue del resto.
+          El paciente paga antes. Tú atiendes tranquilo.
         </p>
 
         <div className={styles.grid}>

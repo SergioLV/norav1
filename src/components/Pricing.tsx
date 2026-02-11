@@ -45,6 +45,10 @@ export default function Pricing() {
           <a href="#cta" className="btn-primary" style={{ marginTop: '1.5rem' }}>
             Crear mi link de agendamiento →
           </a>
+
+          <p className={styles.zeroline}>
+            Si un mes no atiendes, ese mes pagas $0.
+          </p>
         </div>
       </div>
     </section>
