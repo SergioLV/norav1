@@ -20,7 +20,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="section">
+    <section className={`section ${styles.section}`}>
       <div className="container">
         <div className={styles.header}>
           <span className="section-label">Profesionales que ya usan NORA</span>

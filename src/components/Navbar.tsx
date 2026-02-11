@@ -20,7 +20,6 @@ export default function Navbar() {
 
         <ul className={`${styles.links} ${open ? styles.open : ''}`}>
           <li><a href="#problema" onClick={() => setOpen(false)}>Problema</a></li>
-          <li><a href="#solucion" onClick={() => setOpen(false)}>Solución</a></li>
           <li><a href="#como-funciona" onClick={() => setOpen(false)}>Cómo funciona</a></li>
           <li><a href="#precio" onClick={() => setOpen(false)}>Precio</a></li>
           <li><a href="#calculadora" onClick={() => setOpen(false)}>Calculadora</a></li>

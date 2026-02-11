@@ -32,20 +32,41 @@
 
 .stepContent {
   padding: 1rem 0;
+  display: flex;
+  gap: 1.25rem;
 }
 
-.stepNum {
-  display: inline-flex;
+.stepIndicator {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
+  padding-top: 0.35rem;
+  flex-shrink: 0;
+}
+
+.stepDot {
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background: var(--secondary);
+  background: var(--primary);
+  flex-shrink: 0;
+}
+
+.stepLine {
+  width: 2px;
+  flex: 1;
+  min-height: 40px;
+  background: var(--neutral);
+}
+
+.stepLabel {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   color: var(--primary);
   font-weight: 700;
-  font-size: 0.9rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.25rem;
+  display: block;
 }
 
 .stepTitle {

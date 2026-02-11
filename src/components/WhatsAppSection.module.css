@@ -1,0 +1,148 @@
+.section {
+  background: var(--bg);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Phones side by side */
+.phones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  justify-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.phoneWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.phoneLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #999;
+}
+
+.phone {
+  background: #e5ddd5;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  width: 300px;
+  border: 2px solid var(--neutral);
+}
+
+.phoneTop {
+  background: #075e54;
+  padding: 8px 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+.phoneNotch {
+  width: 80px;
+  height: 5px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 3px;
+}
+
+.phoneScreen {
+  display: flex;
+  flex-direction: column;
+}
+
+.waHeader {
+  background: #075e54;
+  padding: 0.6rem 1rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.waAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.waName {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+}
+
+.waStatus {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.waChat {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: #e5ddd5;
+}
+
+.waBubble {
+  background: #dcf8c6;
+  border-radius: 8px 8px 0 8px;
+  padding: 0.6rem 0.75rem;
+  max-width: 95%;
+  align-self: flex-end;
+}
+
+.waBubbleTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #303030;
+  margin-bottom: 0.15rem;
+}
+
+.waBubbleBody {
+  font-size: 0.7rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+.waBubbleTime {
+  display: block;
+  text-align: right;
+  font-size: 0.58rem;
+  color: #999;
+  margin-top: 0.2rem;
+}
+
+.kicker {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .phones {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .phone {
+    width: 280px;
+  }
+}

@@ -7,9 +7,6 @@ export default function Pricing() {
         <div className={styles.header}>
           <span className="section-label">Precio</span>
           <h2 className="section-title">Solo pagas cuando ganas</h2>
-          <p className="section-subtitle" style={{ margin: '0 auto' }}>
-            Sin suscripción. Sin costo de implementación. Sin riesgo.
-          </p>
         </div>
 
         <div className={styles.card}>
@@ -35,21 +32,22 @@ export default function Pricing() {
               <span className={styles.yes}>✓</span> La comisión se descuenta automáticamente
             </li>
             <li className={styles.item}>
-              <span className={styles.yes}>✓</span> Si no tienes pacientes, no pagas nada
-            </li>
-            <li className={styles.item}>
               <span className={styles.yes}>✓</span> Pagos transferidos al siguiente día hábil
             </li>
           </ul>
 
-          <a href="#cta" className="btn-primary" style={{ marginTop: '1.5rem' }}>
+          <p className={styles.zeroline}>
+            Si no agendas pacientes, pagas $0.
+          </p>
+
+          <a href="#cta" className="btn-primary" style={{ marginTop: '1rem' }}>
             Crear mi link de agendamiento →
           </a>
-
-          <p className={styles.zeroline}>
-            Si un mes no atiendes, ese mes pagas $0.
-          </p>
         </div>
+
+        <p className={styles.transparency}>
+          El paciente ve el costo del medio de pago al pagar. Payku cobra 1,99% + IVA por transferirte el dinero.
+        </p>
       </div>
     </section>
   )

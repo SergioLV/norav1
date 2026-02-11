@@ -200,9 +200,15 @@ export default function HowItWorks() {
             return (
               <div key={s.num} className={`${styles.step} ${isReversed ? styles.stepReversed : ''}`}>
                 <div className={styles.stepContent}>
-                  <span className={styles.stepNum}>{s.num}</span>
-                  <h3 className={styles.stepTitle}>{s.title}</h3>
-                  <p className={styles.stepDesc}>{s.desc}</p>
+                  <div className={styles.stepIndicator}>
+                    <span className={styles.stepDot} />
+                    <span className={styles.stepLine} />
+                  </div>
+                  <div>
+                    <span className={styles.stepLabel}>Paso {i + 1}</span>
+                    <h3 className={styles.stepTitle}>{s.title}</h3>
+                    <p className={styles.stepDesc}>{s.desc}</p>
+                  </div>
                 </div>
                 <div className={styles.stepMock}>
                   <Mock />

@@ -2,10 +2,9 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Problem from './components/Problem'
 import NoShows from './components/NoShows'
-import Solution from './components/Solution'
-import WhyItWorks from './components/WhyItWorks'
+import Mechanism from './components/Mechanism'
 import HowItWorks from './components/HowItWorks'
-import Features from './components/Features'
+import WhatsAppSection from './components/WhatsAppSection'
 import Pricing from './components/Pricing'
 import Calculator from './components/Calculator'
 import Testimonials from './components/Testimonials'
@@ -19,10 +18,9 @@ export default function App() {
       <Hero />
       <Problem />
       <NoShows />
-      <Solution />
-      <WhyItWorks />
+      <Mechanism />
       <HowItWorks />
-      <Features />
+      <WhatsAppSection />
       <Pricing />
       <Calculator />
       <Testimonials />

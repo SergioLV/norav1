@@ -10,27 +10,26 @@
   align-items: center;
 }
 
-.content .section-label {
-  color: var(--secondary);
-}
-
-.content .section-title {
+.title {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  line-height: 1.2;
   color: var(--white);
+  margin-bottom: 1.25rem;
 }
 
 .desc {
   font-size: 1.05rem;
   line-height: 1.7;
-  opacity: 0.85;
-  margin-bottom: 1rem;
-  max-width: 460px;
+  opacity: 0.8;
+  margin-bottom: 1.25rem;
+  max-width: 440px;
 }
 
 .quote {
   font-family: var(--font-serif);
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   color: var(--secondary);
-  margin-top: 1rem;
   font-style: italic;
 }
 
@@ -38,8 +37,6 @@
 .flow {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0;
 }
 
 .flowStep {
@@ -51,7 +48,6 @@
   padding: 0.75rem 1.25rem;
   background: rgba(255,255,255,0.1);
   border-radius: 12px;
-  width: 100%;
 }
 
 .flowNum {
@@ -70,8 +66,8 @@
 
 .flowLine {
   width: 2px;
-  height: 20px;
-  background: rgba(255,255,255,0.2);
+  height: 16px;
+  background: rgba(255,255,255,0.15);
   margin-left: 2rem;
 }
 
@@ -83,7 +79,6 @@
   border-radius: 12px;
   font-weight: 700;
   font-size: 0.95rem;
-  width: 100%;
   text-align: center;
 }
 

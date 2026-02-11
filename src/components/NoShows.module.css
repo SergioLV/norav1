@@ -1,81 +1,75 @@
 .section {
-  background: var(--bg);
+  background: var(--text);
+  padding: 5rem 0;
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.grid {
+.layout {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 3rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
 }
 
-.card {
-  background: var(--white);
-  border: 1px solid var(--neutral);
-  border-radius: 16px;
-  padding: 2rem;
-  text-align: center;
-}
-
-.cardHighlight {
-  border-color: var(--primary);
-  border-width: 2px;
-  background: #fdf6f3;
-}
-
-.cardIcon {
-  font-size: 1.75rem;
-  display: block;
-  margin-bottom: 0.75rem;
-}
-
-.cardLabel {
-  font-size: 0.9rem;
-  color: #888;
-  margin-bottom: 0.25rem;
-}
-
-.cardValue {
+.title {
   font-family: var(--font-serif);
-  font-size: 1.2rem;
-  color: var(--text);
+  font-size: 2rem;
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 1.25rem;
 }
 
-.cardBig {
-  font-family: var(--font-serif);
-  font-size: 2.5rem;
-  color: var(--primary);
-  line-height: 1.1;
-}
-
-.cardSub {
-  font-size: 0.85rem;
-  color: #999;
-  margin-top: 0.25rem;
-}
-
-.bottom {
-  text-align: center;
-}
-
-.bottomText {
-  font-size: 1.15rem;
+.text {
+  font-size: 1.05rem;
   line-height: 1.7;
-  color: #555;
-  margin-bottom: 1.5rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 1rem;
 }
 
-.bottomText strong {
-  color: var(--text);
+.hl {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.resolve {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.right {
+  text-align: center;
+}
+
+.rightLabel {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.35);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.rightNumber {
+  font-family: var(--font-serif);
+  font-size: 5.5rem;
+  color: var(--primary);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.rightSub {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 0.5rem;
 }
 
 @media (max-width: 768px) {
-  .grid {
+  .layout {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .rightNumber {
+    font-size: 4rem;
   }
 }
