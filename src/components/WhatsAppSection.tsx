@@ -1,3 +1,4 @@
+import { useInView } from '../hooks/useInView'
 import styles from './WhatsAppSection.module.css'
 
 const patientMsgs = [
@@ -36,11 +37,14 @@ const proMsgs = [
   },
 ]
 
-function Phone({ label, messages }: { label: string; messages: typeof patientMsgs }) {
+function Phone({ label, messages, delayOffset = 0 }: { label: string; messages: typeof patientMsgs; delayOffset?: number }) {
+  const { ref, visible } = useInView(0.2)
+  const v = visible ? styles.animVisible : ''
+
   return (
-    <div className={styles.phoneWrap}>
-      <span className={styles.phoneLabel}>{label}</span>
-      <div className={styles.phone}>
+    <div className={styles.phoneWrap} ref={ref}>
+      <span className={`${styles.phoneLabel} ${styles.animLabel} ${v}`}>{label}</span>
+      <div className={`${styles.phone} ${styles.animPhoneIn} ${v}`}>
         <div className={styles.phoneTop}>
           <div className={styles.phoneNotch} />
         </div>
@@ -49,12 +53,16 @@ function Phone({ label, messages }: { label: string; messages: typeof patientMsg
             <span className={styles.waAvatar}>N</span>
             <div>
               <p className={styles.waName}>NORA</p>
-              <p className={styles.waStatus}>en línea</p>
+              <p className={`${styles.waStatus} ${styles.animTyping} ${v}`}>escribiendo...</p>
             </div>
           </div>
           <div className={styles.waChat}>
             {messages.map((n, i) => (
-              <div key={i} className={styles.waBubble}>
+              <div
+                key={i}
+                className={`${styles.waBubble} ${styles.animBubble} ${v}`}
+                style={{ transitionDelay: visible ? `${delayOffset + 0.4 + i * 0.5}s` : '0s' }}
+              >
                 <p className={styles.waBubbleTitle}>{n.title}</p>
                 <p className={styles.waBubbleBody}>{n.body}</p>
                 <span className={styles.waBubbleTime}>{n.time}</span>
@@ -84,7 +92,7 @@ export default function WhatsAppSection() {
 
         <div className={styles.phones}>
           <Phone label="👤 Lo que recibe el paciente" messages={patientMsgs} />
-          <Phone label="🩺 Lo que recibes tú" messages={proMsgs} />
+          <Phone label="🩺 Lo que recibes tú" messages={proMsgs} delayOffset={0.3} />
         </div>
 
         <p className={styles.kicker}>

@@ -1,4 +1,29 @@
+import { useEffect, useState } from 'react'
+import { useInView } from '../hooks/useInView'
 import styles from './HowItWorks.module.css'
+
+function CountUp({ target }: { target: number }) {
+  const [val, setVal] = useState(0)
+
+  useEffect(() => {
+    const duration = 1200
+    const steps = 30
+    const increment = target / steps
+    let current = 0
+    let step = 0
+
+    const timer = setInterval(() => {
+      step++
+      current = Math.min(Math.round(increment * step), target)
+      setVal(current)
+      if (step >= steps) clearInterval(timer)
+    }, duration / steps)
+
+    return () => clearInterval(timer)
+  }, [target])
+
+  return <>${'$' + val.toLocaleString('es-CL')}</>
+}
 
 const steps = [
   {
@@ -28,8 +53,11 @@ const steps = [
 ]
 
 function ConfigMock() {
+  const { ref, visible } = useInView(0.3)
+  const v = visible ? styles.animVisible : ''
+
   return (
-    <div className={styles.mockCard}>
+    <div className={styles.mockCard} ref={ref}>
       <div className={styles.mockHeader}>
         <span className={styles.mockDot} />
         <span className={styles.mockDot} />
@@ -37,25 +65,25 @@ function ConfigMock() {
         <span className={styles.mockTitle}>Mi agenda</span>
       </div>
       <div className={styles.mockBody}>
-        <div className={styles.serviceRow}>
+        <div className={`${styles.serviceRow} ${styles.animRow1} ${v}`}>
           <span className={styles.serviceIcon}>🧠</span>
           <div>
             <p className={styles.serviceName}>Sesión de psicología</p>
             <p className={styles.serviceMeta}>50 min · $35.000</p>
           </div>
-          <span className={styles.serviceToggle} />
+          <span className={`${styles.serviceToggle} ${styles.animToggle1} ${v}`} />
         </div>
-        <div className={styles.serviceRow}>
+        <div className={`${styles.serviceRow} ${styles.animRow2} ${v}`}>
           <span className={styles.serviceIcon}>🥗</span>
           <div>
             <p className={styles.serviceName}>Consulta nutricional</p>
             <p className={styles.serviceMeta}>40 min · $25.000</p>
           </div>
-          <span className={styles.serviceToggle} />
+          <span className={`${styles.serviceToggle} ${styles.animToggle2} ${v}`} />
         </div>
-        <div className={styles.timeGrid}>
-          {['Lun', 'Mar', 'Mié', 'Jue', 'Vie'].map((d) => (
-            <div key={d} className={styles.timeCol}>
+        <div className={`${styles.timeGrid} ${styles.animGrid} ${v}`}>
+          {['Lun', 'Mar', 'Mié', 'Jue', 'Vie'].map((d, i) => (
+            <div key={d} className={styles.timeCol} style={{ transitionDelay: visible ? `${0.8 + i * 0.1}s` : '0s' }}>
               <span className={styles.timeDay}>{d}</span>
               <span className={styles.timeSlot}>9:00–13:00</span>
               <span className={styles.timeSlot}>15:00–19:00</span>
@@ -68,8 +96,11 @@ function ConfigMock() {
 }
 
 function ShareMock() {
+  const { ref, visible } = useInView(0.3)
+  const v = visible ? styles.animVisible : ''
+
   return (
-    <div className={styles.mockCard}>
+    <div className={styles.mockCard} ref={ref}>
       <div className={styles.mockHeader}>
         <span className={styles.mockDot} />
         <span className={styles.mockDot} />
@@ -77,20 +108,28 @@ function ShareMock() {
         <span className={styles.mockTitle}>Compartir</span>
       </div>
       <div className={styles.mockBody}>
-        <div className={styles.linkBox}>
+        <div className={`${styles.linkBox} ${styles.animLinkBox} ${v}`}>
           <span className={styles.linkIcon}>🔗</span>
           <span className={styles.linkText}>nora.cl/psicologia/<strong>francisco-valdes</strong>/agendamiento</span>
+          <span className={`${styles.copyBadge} ${styles.animCopy} ${v}`}>Copiado ✓</span>
+          <span className={`${styles.cursor} ${styles.animCursor} ${v}`}>
+            <svg width="16" height="20" viewBox="0 0 16 20" fill="none"><path d="M1 1l5.5 17 2.5-7 7-2.5L1 1z" fill="var(--text)" stroke="var(--white)" strokeWidth="1.5"/></svg>
+          </span>
         </div>
         <div className={styles.shareButtons}>
-          <div className={styles.shareBtn} data-type="ig">
-            <span>📸</span> Bio de Instagram
-          </div>
-          <div className={styles.shareBtn} data-type="wa">
-            <span>💬</span> Respuesta rápida WhatsApp
-          </div>
-          <div className={styles.shareBtn} data-type="web">
-            <span>🌐</span> Sitio web
-          </div>
+          {[
+            { icon: '📸', label: 'Bio de Instagram', type: 'ig' },
+            { icon: '💬', label: 'Respuesta rápida WhatsApp', type: 'wa' },
+            { icon: '🌐', label: 'Sitio web', type: 'web' },
+          ].map((b, i) => (
+            <div
+              key={b.type}
+              className={`${styles.shareBtn} ${styles.animShareBtn} ${v}`}
+              style={{ transitionDelay: visible ? `${1.2 + i * 0.15}s` : '0s' }}
+            >
+              <span>{b.icon}</span> {b.label}
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -98,13 +137,16 @@ function ShareMock() {
 }
 
 function BookMock() {
+  const { ref, visible } = useInView(0.3)
+  const v = visible ? styles.animVisible : ''
+
   return (
-    <div className={styles.mockPhone}>
+    <div className={`${styles.mockPhone} ${styles.animPhone} ${v}`} ref={ref}>
       <div className={styles.phoneNotch} />
       <div className={styles.phoneBody}>
         <p className={styles.phoneProName}>Francisco Valdés</p>
         <p className={styles.phoneProRole}>Psicólogo clínico</p>
-        <div className={styles.phoneService}>
+        <div className={`${styles.phoneService} ${styles.animService} ${v}`}>
           <span>🧠</span>
           <div>
             <p className={styles.phoneServiceName}>Sesión individual</p>
@@ -113,24 +155,34 @@ function BookMock() {
         </div>
         <div className={styles.phoneDays}>
           {['Lu 12', 'Ma 13', 'Mi 14', 'Ju 15'].map((d, i) => (
-            <span key={d} className={`${styles.phoneDay} ${i === 2 ? styles.phoneDayActive : ''}`}>{d}</span>
+            <span
+              key={d}
+              className={`${styles.phoneDay} ${styles.animDay} ${v} ${i === 2 ? styles.animDaySelect : ''}`}
+              style={{ transitionDelay: visible ? `${0.5 + i * 0.1}s` : '0s' }}
+            >{d}</span>
           ))}
         </div>
         <div className={styles.phoneSlots}>
-          <span className={styles.phoneSlot}>09:00</span>
-          <span className={`${styles.phoneSlot} ${styles.phoneSlotActive}`}>10:00</span>
-          <span className={styles.phoneSlot}>11:00</span>
-          <span className={styles.phoneSlot}>15:00</span>
+          {['09:00', '10:00', '11:00', '15:00'].map((t, i) => (
+            <span
+              key={t}
+              className={`${styles.phoneSlot} ${styles.animSlot} ${v} ${i === 1 ? styles.animSlotSelect : ''}`}
+              style={{ transitionDelay: visible ? `${1.0 + i * 0.08}s` : '0s' }}
+            >{t}</span>
+          ))}
         </div>
-        <div className={styles.phonePayBtn}>Pagar $35.000 →</div>
+        <div className={`${styles.phonePayBtn} ${styles.animPayBtn} ${v}`}>Pagar $35.000 →</div>
       </div>
     </div>
   )
 }
 
 function PayMock() {
+  const { ref, visible } = useInView(0.3)
+  const v = visible ? styles.animVisible : ''
+
   return (
-    <div className={styles.mockCard}>
+    <div className={styles.mockCard} ref={ref}>
       <div className={styles.mockHeader}>
         <span className={styles.mockDot} />
         <span className={styles.mockDot} />
@@ -138,37 +190,35 @@ function PayMock() {
         <span className={styles.mockTitle}>Mis ingresos</span>
       </div>
       <div className={styles.mockBody}>
-        <div className={styles.payTotal}>
+        <div className={`${styles.payTotal} ${styles.animPayTotal} ${v}`}>
           <span className={styles.payLabel}>Transferido esta semana</span>
-          <span className={styles.payAmount}>$245.000</span>
+          <span className={styles.payAmount}>
+            {visible ? <CountUp target={245000} /> : '$0'}
+          </span>
         </div>
         <div className={styles.payRows}>
-          <div className={styles.payRow}>
-            <span className={styles.payRowIcon}>✓</span>
-            <div>
-              <p className={styles.payRowName}>Camila R. — Sesión individual</p>
-              <p className={styles.payRowDate}>Lun 12 Ene · 10:00</p>
+          {[
+            { name: 'Camila R. — Sesión individual', date: 'Lun 12 Ene · 10:00', amount: '$34.000' },
+            { name: 'Tomás M. — Sesión individual', date: 'Lun 12 Ene · 11:00', amount: '$34.000' },
+            { name: 'Valentina S. — Sesión individual', date: 'Mar 13 Ene · 09:00', amount: '$34.000' },
+          ].map((row, i) => (
+            <div
+              key={i}
+              className={`${styles.payRow} ${styles.animPayRow} ${v}`}
+              style={{ transitionDelay: visible ? `${0.4 + i * 0.2}s` : '0s' }}
+            >
+              <span className={styles.payRowIcon}>✓</span>
+              <div>
+                <p className={styles.payRowName}>{row.name}</p>
+                <p className={styles.payRowDate}>{row.date}</p>
+              </div>
+              <span className={styles.payRowAmount}>{row.amount}</span>
             </div>
-            <span className={styles.payRowAmount}>$34.000</span>
-          </div>
-          <div className={styles.payRow}>
-            <span className={styles.payRowIcon}>✓</span>
-            <div>
-              <p className={styles.payRowName}>Tomás M. — Sesión individual</p>
-              <p className={styles.payRowDate}>Lun 12 Ene · 11:00</p>
-            </div>
-            <span className={styles.payRowAmount}>$34.000</span>
-          </div>
-          <div className={styles.payRow}>
-            <span className={styles.payRowIcon}>✓</span>
-            <div>
-              <p className={styles.payRowName}>Valentina S. — Sesión individual</p>
-              <p className={styles.payRowDate}>Mar 13 Ene · 09:00</p>
-            </div>
-            <span className={styles.payRowAmount}>$34.000</span>
-          </div>
+          ))}
         </div>
-        <p className={styles.payNote}>Comisión NORA: $1.000 por reserva · ya descontada</p>
+        <p className={`${styles.payNote} ${styles.animPayNote} ${v}`}>
+          Comisión NORA: $1.000 por reserva · ya descontada
+        </p>
       </div>
     </div>
   )
