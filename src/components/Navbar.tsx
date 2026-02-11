@@ -22,10 +22,10 @@ export default function Navbar() {
         </button>
 
         <ul className={`${styles.links} ${open ? styles.open : ''}`}>
-          <li><a href="#problema" onClick={() => setOpen(false)}>Problema</a></li>
           <li><a href="#como-funciona" onClick={() => setOpen(false)}>Cómo funciona</a></li>
           <li><a href="#precio" onClick={() => setOpen(false)}>Precio</a></li>
           <li><a href="#calculadora" onClick={() => setOpen(false)}>Calculadora</a></li>
+          <li><a href="#faq" onClick={() => setOpen(false)}>FAQ</a></li>
         </ul>
 
         <a href="#cta" className={`btn-primary ${styles.cta}`}>Crear mi link</a>
