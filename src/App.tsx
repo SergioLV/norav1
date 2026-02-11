@@ -5,6 +5,7 @@ import Solution from './components/Solution'
 import HowItWorks from './components/HowItWorks'
 import Features from './components/Features'
 import Pricing from './components/Pricing'
+import Calculator from './components/Calculator'
 import Testimonials from './components/Testimonials'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
@@ -19,6 +20,7 @@ export default function App() {
       <HowItWorks />
       <Features />
       <Pricing />
+      <Calculator />
       <Testimonials />
       <CTA />
       <Footer />

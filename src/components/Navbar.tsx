@@ -23,6 +23,7 @@ export default function Navbar() {
           <li><a href="#solucion" onClick={() => setOpen(false)}>Solución</a></li>
           <li><a href="#como-funciona" onClick={() => setOpen(false)}>Cómo funciona</a></li>
           <li><a href="#precio" onClick={() => setOpen(false)}>Precio</a></li>
+          <li><a href="#calculadora" onClick={() => setOpen(false)}>Calculadora</a></li>
         </ul>
 
         <a href="#cta" className={`btn-primary ${styles.cta}`}>Crear mi link</a>
