@@ -1,0 +1,100 @@
+.section {
+  background: var(--white);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+.num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--secondary);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.cardTitle {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+}
+
+.cardDesc {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.linkDemo {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.linkDemoLabel {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #999;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.linkBar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg);
+  border: 1.5px solid var(--neutral);
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.linkDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--neutral);
+}
+
+.linkText {
+  margin-left: 0.5rem;
+}
+
+.linkText strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
