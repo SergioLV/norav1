@@ -1,100 +1,428 @@
 .section {
   background: var(--white);
+  overflow: hidden;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
-.grid {
+/* Steps layout */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.step {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
 }
 
-.card {
-  text-align: center;
-  padding: 2rem 1.5rem;
+.stepReversed {
+  direction: rtl;
 }
 
-.num {
+.stepReversed > * {
+  direction: ltr;
+}
+
+.stepContent {
+  padding: 1rem 0;
+}
+
+.stepNum {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--secondary);
   color: var(--primary);
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin-bottom: 1.25rem;
 }
 
-.cardTitle {
+.stepTitle {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 1.6rem;
   margin-bottom: 0.75rem;
+  line-height: 1.2;
 }
 
-.cardDesc {
-  font-size: 0.9rem;
+.stepDesc {
+  font-size: 1rem;
   color: #666;
-  line-height: 1.6;
+  line-height: 1.7;
+  max-width: 400px;
 }
 
-.linkDemo {
-  margin-top: 3rem;
-  text-align: center;
-}
-
-.linkDemoLabel {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #999;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-}
-
-.linkBar {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+/* Mock cards */
+.mockCard {
   background: var(--bg);
-  border: 1.5px solid var(--neutral);
-  border-radius: 10px;
-  padding: 0.75rem 1.5rem;
-  font-size: 0.9rem;
-  color: #888;
+  border: 1px solid var(--neutral);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
 }
 
-.linkDot {
+.mockHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--neutral);
+  background: var(--white);
+}
+
+.mockDot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: var(--neutral);
 }
 
+.mockTitle {
+  margin-left: auto;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.mockBody {
+  padding: 1.25rem;
+}
+
+/* Config mock */
+.serviceRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--white);
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.serviceIcon {
+  font-size: 1.25rem;
+}
+
+.serviceName {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.serviceMeta {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.serviceToggle {
+  margin-left: auto;
+  width: 36px;
+  height: 20px;
+  border-radius: 10px;
+  background: var(--accent);
+  position: relative;
+}
+
+.serviceToggle::after {
+  content: '';
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: white;
+}
+
+.timeGrid {
+  display: flex;
+  gap: 0.35rem;
+  margin-top: 1rem;
+}
+
+.timeCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.timeDay {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.timeSlot {
+  font-size: 0.65rem;
+  background: var(--white);
+  border-radius: 6px;
+  padding: 4px 6px;
+  color: var(--accent);
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+}
+
+/* Share mock */
+.linkBox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--white);
+  border: 1.5px solid var(--primary);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.linkIcon {
+  font-size: 1rem;
+}
+
 .linkText {
-  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  color: #888;
 }
 
 .linkText strong {
   color: var(--primary);
+}
+
+.shareButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.shareBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 0.85rem;
+  background: var(--white);
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: background 0.15s;
+}
+
+/* Phone mock */
+.mockPhone {
+  background: var(--white);
+  border: 1px solid var(--neutral);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.phoneNotch {
+  width: 100px;
+  height: 6px;
+  background: var(--neutral);
+  border-radius: 3px;
+  margin: 12px auto 0;
+}
+
+.phoneBody {
+  padding: 1.5rem;
+}
+
+.phoneProName {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.phoneProRole {
+  font-size: 0.75rem;
+  color: #999;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.phoneService {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--bg);
+  border-radius: 10px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1.5px solid var(--primary);
+}
+
+.phoneServiceName {
+  font-size: 0.8rem;
   font-weight: 600;
 }
 
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
+.phoneServiceMeta {
+  font-size: 0.7rem;
+  color: #999;
 }
 
-@media (max-width: 480px) {
-  .grid {
+.phoneDays {
+  display: flex;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.phoneDay {
+  flex: 1;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 6px 4px;
+  border-radius: 8px;
+  background: var(--bg);
+  color: #888;
+}
+
+.phoneDayActive {
+  background: var(--primary);
+  color: white;
+}
+
+.phoneSlots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.phoneSlot {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 8px;
+  border-radius: 8px;
+  background: var(--bg);
+  color: #666;
+}
+
+.phoneSlotActive {
+  background: var(--accent);
+  color: white;
+}
+
+.phonePayBtn {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* Pay mock */
+.payTotal {
+  text-align: center;
+  padding: 1rem;
+  background: var(--white);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.payLabel {
+  display: block;
+  font-size: 0.75rem;
+  color: #999;
+  margin-bottom: 0.25rem;
+}
+
+.payAmount {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+.payRows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.payRow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--white);
+  border-radius: 10px;
+}
+
+.payRowIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #e6f0ec;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.payRowName {
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.payRowDate {
+  font-size: 0.68rem;
+  color: #aaa;
+}
+
+.payRowAmount {
+  margin-left: auto;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.payNote {
+  font-size: 0.7rem;
+  color: #bbb;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .step {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .stepReversed {
+    direction: ltr;
+  }
+
+  .steps {
+    gap: 3.5rem;
+  }
+
+  .mockPhone {
+    max-width: 260px;
   }
 }
