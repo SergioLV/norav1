@@ -1,3 +1,4 @@
+import { useInView } from '../hooks/useInView'
 import styles from './Problem.module.css'
 
 const pains = [
@@ -8,21 +9,37 @@ const pains = [
   { icon: '😬', text: 'La incomodidad de cobrar personalmente' },
 ]
 
+const bubbles = [
+  { side: 'left', text: 'Hola, ¿tienes hora disponible? 🙏' },
+  { side: 'right', text: 'Sí, el viernes a las 11:00. ¿Te sirve?' },
+  { side: 'left', text: 'Dale! Cómo te pago?' },
+  { side: 'right', text: 'Transferencia al Banco Estado, te mando los datos...' },
+  { side: 'left', text: 'Listo, transferí!' },
+  { side: 'right', text: 'Mmm no me aparece aún... 🔍' },
+  { side: 'left', text: 'Viernes 10:45 — "No voy a poder ir 😅 ¿la otra semana?"', ghost: true },
+]
+
 export default function Problem() {
+  const { ref, visible } = useInView(0.15)
+  const v = visible ? styles.animVisible : ''
+
   return (
     <section id="problema" className={`section ${styles.problem}`}>
       <div className="container">
         <div className={styles.grid}>
-          <div className={styles.chat} aria-label="Conversación típica de WhatsApp">
-            <div className={styles.bubbleLeft}>Hola, ¿tienes hora disponible? 🙏</div>
-            <div className={styles.bubbleRight}>Sí, el viernes a las 11:00. ¿Te sirve?</div>
-            <div className={styles.bubbleLeft}>Dale! Cómo te pago?</div>
-            <div className={styles.bubbleRight}>Transferencia al Banco Estado, te mando los datos...</div>
-            <div className={styles.bubbleLeft}>Listo, transferí!</div>
-            <div className={styles.bubbleRight}>Mmm no me aparece aún... 🔍</div>
-            <div className={styles.bubbleLeft} style={{ opacity: 0.45, fontStyle: 'italic' }}>
-              Viernes 10:45 — "No voy a poder ir 😅 ¿la otra semana?"
-            </div>
+          <div className={styles.chat} ref={ref} aria-label="Conversación típica de WhatsApp">
+            {bubbles.map((b, i) => (
+              <div
+                key={i}
+                className={`${b.side === 'left' ? styles.bubbleLeft : styles.bubbleRight} ${styles.animBubble} ${v}`}
+                style={{
+                  transitionDelay: visible ? `${i * 0.35}s` : '0s',
+                  ...(b.ghost ? { opacity: visible ? 0.45 : 0, fontStyle: 'italic' } : {}),
+                }}
+              >
+                {b.text}
+              </div>
+            ))}
           </div>
 
           <div>

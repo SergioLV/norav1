@@ -73,6 +73,18 @@
   line-height: 1.4;
 }
 
+/* Chat bubble animations */
+.animBubble {
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.animBubble.animVisible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;
