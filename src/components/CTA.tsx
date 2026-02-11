@@ -12,7 +12,11 @@ export default function CTA() {
           Tu agenda, tu link, tus pagos confirmados.
         </p>
         <a href="#" className={styles.btn}>Crear mi link de agendamiento →</a>
-        <p className={styles.note}>Configuración inicial: menos de 3 minutos.</p>
+        <div className={styles.frictionless}>
+          <span>⏱ Menos de 3 minutos</span>
+          <span>💳 Sin tarjeta de crédito</span>
+          <span>🚫 Sin suscripción</span>
+        </div>
       </div>
     </section>
   )

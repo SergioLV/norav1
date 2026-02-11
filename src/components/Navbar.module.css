@@ -21,6 +21,18 @@
   font-size: 1.5rem;
   color: var(--primary);
   letter-spacing: 0.04em;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.logoSub {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: #999;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .links {

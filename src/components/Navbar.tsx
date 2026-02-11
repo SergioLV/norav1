@@ -7,7 +7,10 @@ export default function Navbar() {
   return (
     <nav className={styles.nav}>
       <div className={`container ${styles.inner}`}>
-        <a href="#" className={styles.logo}>NORA</a>
+        <a href="#" className={styles.logo}>
+          NORA
+          <span className={styles.logoSub}>Agendamiento + Pagos</span>
+        </a>
 
         <button
           className={styles.burger}

@@ -27,7 +27,7 @@ export default function Problem() {
 
           <div>
             <span className="section-label">El problema real</span>
-            <h2 className="section-title">Tu consulta no funciona por agenda.<br />Funciona por conversaciones.</h2>
+            <h2 className="section-title">Atiendes 8 pacientes al día.<br />Pero coordinas como si fueran 80.</h2>
             <ul className={styles.painList}>
               {pains.map((p, i) => (
                 <li key={i} className={styles.painItem}>
